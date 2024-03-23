@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_restful import Api, Resource
 from flasgger import Swagger
 from sentence_transformers import SentenceTransformer, util
@@ -8,6 +8,16 @@ app = Flask(__name__)
 api = Api(app)
 swagger = Swagger(app)
 model = SentenceTransformer("all-MiniLM-L6-v2")
+
+
+@app.route("/")
+def start():
+    return "The Server is Running"
+
+@app.route('/test')
+def test():
+    return render_template('index.html')
+
 
 def map_to_scale(x):
     return (x + 1) / 2
@@ -72,5 +82,3 @@ class CSM(Resource):
 
 api.add_resource(CSM, "/calculate-similarity")
 
-if __name__=="__main__":
-    app.run(debug=True, port=8000)
