@@ -2,7 +2,7 @@ flask==2.0.2
 flask-restful==0.3.9
 flasgger==0.9.5
 transformers==4.15.0  # Dependency of sentence-transformers
-torch==1.10.1  # Dependency of sentence-transformers
-torchvision==0.11.2  # Dependency of sentence-transformers
-sentence-transformers==2.1.0
+torch  # Dependency of sentence-transformers
+torchvision  # Dependency of sentence-transformers
+sentence-transformers
 gunicorn
